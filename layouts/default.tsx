@@ -13,7 +13,8 @@ export default function DefaultLayout({
 	children: React.ReactNode
 }) {
   const dispatch = useDispatch<AppDispatch>()
-  const data = useSelector((state: RootState) => state.rabbitLifeSlice)
+//   const data = useSelector((state: RootState) => state.rabbitLifeSlice)
+//   const suggestions = useSelector((state: RootState) => state.rabbitLifeSlice.suggestions)
 
   const fetchProductLists = () => {
     dispatch(fetchProducts({}))

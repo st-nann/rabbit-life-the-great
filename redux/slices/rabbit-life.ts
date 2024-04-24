@@ -6,11 +6,15 @@ import isEmpty from "lodash/isEmpty"
 import isNull from "lodash/isNull"
 import concat from "lodash/concat"
 import uniqBy from "lodash/uniqBy"
+import filter from "lodash/filter"
+import includes from "lodash/includes"
 
 type InitialStateProp = {
     loading: boolean,
     data: Lists | null,
     faqs: Faqs[] | null,
+    detail: Product | null | undefined,
+    suggestions: Product[] | null | undefined,
     error: any,
 }
 
@@ -18,6 +22,8 @@ const initialState: InitialStateProp = {
     loading: false,
     data: null,
     faqs: null,
+    detail: null,
+    suggestions: null,
     error: null
 }
 
@@ -35,6 +41,13 @@ const rabbitLifeSlice = createSlice({
         }
       })
       state.faqs = uniqBy(faqs, "faq_id")
+    },
+    suggestions: (state, action: PayloadAction<Lists>) => {
+      const specificSuggestions = process.env.NEXT_PUBLIC_PRODUCT_SUGGESTION
+      const specificSuggestionArr = specificSuggestions?.split(',')
+      const products = get(action, "payload.products", [])
+      const suggestions = filter(products, (v: Product) => includes(specificSuggestionArr, v.product_id.toString()))
+      state.suggestions = suggestions
     }
   },
   extraReducers: (builder) => {
@@ -47,6 +60,7 @@ const rabbitLifeSlice = createSlice({
         state.data = payload
         state.loading = false
         rabbitLifeSlice.caseReducers.faq(state, action)
+        rabbitLifeSlice.caseReducers.suggestions(state, action)
       })
       .addCase(fetchProducts.rejected, (state, action: PayloadAction<any>) => {
         state.loading = false
