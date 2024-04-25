@@ -6,8 +6,8 @@ import { fontSans, fontMono, fontRoboto } from "@/config/fonts"
 import { useRouter } from 'next/router'
 import { store } from "@/redux/store"
 import { Provider } from "react-redux"
-import "@/styles/globals.css"
 import { NextPageContext } from "next"
+import "@/styles/globals.css"
 
 App.getInitialProps = async ({ query }: NextPageContext) => {
 	return { query }
