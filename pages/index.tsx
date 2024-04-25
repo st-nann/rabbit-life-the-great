@@ -8,11 +8,17 @@ import { GithubIcon } from "@/components/icons"
 import DefaultLayout from "@/layouts/default"
 import Carousel from "@/components/carousel"
 import { banner } from "@/config/home"
+import { useState } from "react"
 
 export default function IndexPage() {
+  const [open, setOpen] = useState(false)
+  const openModal = () => {
+    setOpen(true)
+  }
 	return (
 		<DefaultLayout>
 			<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+        <button onClick={() => openModal} />
 				<Carousel lists={banner} />
 				<div className="inline-block max-w-lg text-center justify-center">
 					<h1 className={title()}>Make&nbsp;</h1>
