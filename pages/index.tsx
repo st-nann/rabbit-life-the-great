@@ -22,6 +22,7 @@ export default function IndexPage() {
 						Beautiful, fast and modern React UI library.
 					</h4>
 				</div>
+				
 				<div className="flex gap-3">
 					<Link
 						isExternal
