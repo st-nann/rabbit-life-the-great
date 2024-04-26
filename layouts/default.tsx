@@ -31,7 +31,7 @@ export default function DefaultLayout({
 			<main className="container mx-auto max-w-7xl px-6 flex-grow">
 				{children}
 			</main>
-			<footer className="w-full flex items-center justify-center py-3">
+			<footer id="footer" className="w-full flex items-center justify-center py-3">
 				<Link
 					isExternal
 					className="flex items-center gap-1 text-current"
