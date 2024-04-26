@@ -1,6 +1,6 @@
 import React from "react";
 import NextHead from "next/head";
-import { siteConfig } from "@/config/site";
+import { siteConfig } from "@/config/site"
 
 export const Head = () => {
 	return (
@@ -29,5 +29,5 @@ export const Head = () => {
 			<link rel="preconnect" href="/" crossOrigin="anonymous"></link>
 			<link rel="manifest" href="/manifest"></link>
 		</NextHead>
-	);
-};
+	)
+}

@@ -37,9 +37,9 @@ export const Navbar = () => {
   
 	return (
 		<NextUINavbar
-      isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
+      className="max-w-screen-xl"
     >
       <NavbarBrand>
         <Image
@@ -117,6 +117,7 @@ export const Navbar = () => {
                   ? (item.groups as any).map((groupItem: Menu, groupIndex : number) => {
                         return (
                           <Link
+                            key={`nav-menu-link-${groupItem.text}-${groupIndex}`}
                             className="w-full py-1.5"
                             size="lg"
                             onClick={() => handleClickMenu(groupItem) }

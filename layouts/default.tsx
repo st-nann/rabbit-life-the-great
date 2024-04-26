@@ -1,11 +1,9 @@
 import { Navbar } from "@/components/navbar"
-import { Link } from "@nextui-org/link"
 import { Head } from "@/layouts/head"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchProducts } from "@/redux/api/rabbit-life"
 import { RootState, AppDispatch } from '@/redux/store'
 import { useEffect } from "react"
-import { AppProps } from "next/app"
 import { Footer } from "@/components/footer"
 
 export default function DefaultLayout({
@@ -28,11 +26,13 @@ export default function DefaultLayout({
 	return (
 		<div className="relative flex flex-col h-screen">
 			<Head />
-			<Navbar />
-			<main className="container mx-auto max-w-7xl px-6 flex-grow">
+			<div className="w-full flex flex-wrap flex-row justify-center">
+      	<Navbar />
+			</div>
+			<main className="container mx-auto max-w-7xl flex-grow">
 				{children}
 			</main>
-			<Footer />
+      <Footer />
 		</div>
-	);
+	)
 }
