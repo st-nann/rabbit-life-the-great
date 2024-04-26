@@ -19,6 +19,7 @@ import { menu } from "@/config/menu"
 import { Menu, MenuGroup } from "@/types/menu"
 import { IoIosArrowDown } from "react-icons/io"
 import { useState } from "react"
+import React from "react"
 
 export const Navbar = () => { 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -52,12 +53,11 @@ export const Navbar = () => {
       </NavbarContent>
       <NavbarContent className="hidden md:flex gap-4" justify="center">
         { (menu as any).map((item: Menu, index: number) => {
-          // console.log('item: ', item)
             return (
-              <>
+              <React.Fragment key={`navbar-fragment-${item.text}-${index}`}>
                 { item.action === "dropdown" &&
-                  <Dropdown key={`dropdown-${item.text}-${index}`}>
-                    <NavbarItem key={`nav-item-dropdown-${item.text}-${index}`}>
+                  <Dropdown>
+                    <NavbarItem>
                       <DropdownTrigger>
                         <Button
                           disableRipple
@@ -104,10 +104,9 @@ export const Navbar = () => {
                       </Link>
                     </NavbarItem>
                 }
-              </>
+              </React.Fragment>
             )
         })}
-        
       </NavbarContent>
       <NavbarContent className="hidden md:flex gap-4" justify="end"></NavbarContent>
       <NavbarMenu className="p-10">

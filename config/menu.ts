@@ -3,6 +3,7 @@ import { Menu } from "@/types/menu"
 const RABBIT_LIFE_STORAGE = process.env.NEXT_PUBLIC_RABBIT_LIFE_STORAGE as string
 export const menu: Menu[] = [
   {
+    id: 1,
     text: "ผลิตภัณฑ์",
     action: "dropdown",
     groups: [
@@ -39,11 +40,13 @@ export const menu: Menu[] = [
     ]
   },
   {
-    text: "เกี่ยวกับ",
+    id: 2,
+    text: "เกี่ยวกับเรา",
     action: "link",
     url: "/th/about",
   },
   {
+    id: 3,
     text: "ติดต่อเรา",
     action: "scroll",
   }
