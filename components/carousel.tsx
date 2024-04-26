@@ -24,7 +24,7 @@ const Carousel = ({ lists }) => {
   // }
 
   return (
-    <div className="flex flex-col flex-wrap bg-white p-8 rounded-lg shadow-xl max-w-3xl">
+    <div className="flex flex-col flex-wrap bg-white p-8 rounded-lg shadow-xl md:max-w-3xl">
       <Image
         className="w-full h-auto"
         src={lists[currentImageIndex].image}

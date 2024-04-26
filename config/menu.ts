@@ -10,7 +10,7 @@ export const menu: Menu[] = [
       {
         text: "ประกันคุ้มครองชีวิต",
         icon: `${RABBIT_LIFE_STORAGE}/productfiles/homepage_share/images/home/Protect-icon.png?fbclid=IwZXh0bgNhZW0CMTAAAR2GciXIQrBBCyDU2-5imT2s3PCahI19x_aLKYx1mVZpxZ9lR9WcR8w3C7I_aem_Af6_WiqvgzRCCm6PRNR4zz6XvyLuspAirpiTcqF20nnkTQozy2558RoWzGpm9TEpssApFipg-buMJ4ebqoTJn3m4`,
-        color: "yellow-500",
+        color: "yellow-400",
         url: "/th/products/life-insurance",
       },
       {
