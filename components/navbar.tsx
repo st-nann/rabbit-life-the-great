@@ -1,138 +1,145 @@
-import {
-	Button,
-	Kbd,
-	Link,
-	Input,
-	Navbar as NextUINavbar,
-	NavbarContent,
-	NavbarMenu,
-	NavbarMenuToggle,
-	NavbarBrand,
-	NavbarItem,
-	NavbarMenuItem,
-} from "@nextui-org/react";
-
-import { link as linkStyles } from "@nextui-org/theme";
-
-import { siteConfig } from "@/config/site";
-import NextLink from "next/link";
-import clsx from "clsx";
 
 import {
-	TwitterIcon,
-	GithubIcon,
-	DiscordIcon,
-	HeartFilledIcon,
-	SearchIcon,
-} from "@/components/icons";
+  Navbar as NextUINavbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenuToggle,
+  Link,
+  Button,
+  DropdownItem,
+  DropdownTrigger,
+  Dropdown,
+  DropdownMenu,
+  Image,
+  NavbarMenu,
+  NavbarMenuItem
+} from "@nextui-org/react"
+import { menu } from "@/config/menu"
+import { Menu, MenuGroup } from "@/types/menu"
+import { IoIosArrowDown } from "react-icons/io"
+import { useState } from "react"
 
-import { Logo } from "@/components/icons";
-
-export const Navbar = () => {
-	const searchInput = (
-		<Input
-			aria-label="Search"
-			classNames={{
-				inputWrapper: "bg-default-100",
-				input: "text-sm",
-			}}
-			endContent={
-				<Kbd className="hidden lg:inline-block" keys={["command"]}>
-					K
-				</Kbd>
-			}
-			labelPlacement="outside"
-			placeholder="Search..."
-			startContent={
-				<SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
-			}
-			type="search"
-		/>
-	);
-
+export const Navbar = () => { 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  const handleClickMenu = (item: Menu) => {
+    if (item.action === "link") {
+      window.location.href = item.url as string
+    } else if (item.action === "scroll") {
+      const footer = document.getElementById("footer");
+      if (footer) {
+        footer.scrollIntoView({ behavior: "smooth" })
+      }
+    }
+  }
+  
 	return (
-		<NextUINavbar maxWidth="xl" position="sticky">
-			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-				<NavbarBrand className="gap-3 max-w-fit">
-					<NextLink className="flex justify-start items-center gap-1" href="/">
-						<Logo />
-						<p className="font-bold text-inherit">ACME</p>
-					</NextLink>
-				</NavbarBrand>
-				<div className="hidden lg:flex gap-4 justify-start ml-2">
-					{siteConfig.navItems.map((item) => (
-						<NavbarItem key={item.href}>
-							<NextLink
-								className={clsx(
-									linkStyles({ color: "foreground" }),
-									"data-[active=true]:text-primary data-[active=true]:font-medium"
-								)}
-								color="foreground"
-								href={item.href}
-							>
-								{item.label}
-							</NextLink>
-						</NavbarItem>
-					))}
-				</div>
-			</NavbarContent>
-
-      <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
-				<NavbarItem className="hidden sm:flex gap-2">
-					<Link isExternal href={siteConfig.links.twitter}>
-						<TwitterIcon className="text-default-500" />
-					</Link>
-					<Link isExternal href={siteConfig.links.discord}>
-						<DiscordIcon className="text-default-500" />
-					</Link>
-					<Link isExternal href={siteConfig.links.github}>
-						<GithubIcon className="text-default-500" />
-					</Link>
-				</NavbarItem>
-				<NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
-				<NavbarItem className="hidden md:flex">
-					<Button
-						isExternal
-						as={Link}
-						className="text-sm font-normal text-default-600 bg-default-100"
-						href={siteConfig.links.sponsor}
-						startContent={<HeartFilledIcon className="text-danger" />}
-						variant="flat"
-					>
-						Sponsor
-					</Button>
-				</NavbarItem>
-			</NavbarContent>
-
-			<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <Link isExternal href={siteConfig.links.github}>
-          <GithubIcon className="text-default-500" />
-        </Link>
-				<NavbarMenuToggle />
+		<NextUINavbar
+      isBordered
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
+    >
+      <NavbarBrand>
+        <Image
+          width={200}
+          alt="NextUI hero Image"
+          src="/rabbitlife-logo.png"
+        />
+      </NavbarBrand>
+      <NavbarContent className="md:hidden xs:flex" justify="end">
+        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
       </NavbarContent>
-
-      <NavbarMenu>
-				{searchInput}
-				<div className="mx-4 mt-2 flex flex-col gap-2">
-					{siteConfig.navMenuItems.map((item, index) => (
-						<NavbarMenuItem key={`${item}-${index}`}>
-							<Link
-								color={
-									index === 2
-										? "primary"
-										: index === siteConfig.navMenuItems.length - 1
-										? "danger"
-										: "foreground"
-								}
-								href="#"
-								size="lg"
-							>
-								{item.label}
-							</Link>
-						</NavbarMenuItem>
-					))}
-				</div>
-			</NavbarMenu>
-		</NextUINavbar>
-	);
-};
+      <NavbarContent className="hidden md:flex gap-4" justify="center">
+        { (menu as any).map((item: Menu, index: number) => {
+          // console.log('item: ', item)
+            return (
+              <>
+                { item.action === "dropdown" &&
+                  <Dropdown key={`dropdown-${item.text}-${index}`}>
+                    <NavbarItem key={`nav-item-dropdown-${item.text}-${index}`}>
+                      <DropdownTrigger>
+                        <Button
+                          disableRipple
+                          className="p-0 bg-transparent data-[hover=true]:bg-transparent text-base"
+                          endContent={<IoIosArrowDown />}
+                          radius="sm"
+                          variant="light"
+                        >
+                          {item.text}
+                        </Button>
+                      </DropdownTrigger>
+                    </NavbarItem>
+                    <DropdownMenu
+                      aria-label="features"
+                      className="w-[200px]"
+                      itemClasses={{
+                        base: "gap-4",
+                      }}
+                    >
+                      { (item.groups as any).map((groupItem: MenuGroup, groupIndex: number) => {
+                        return (
+                          <DropdownItem key={`dropdown-${groupItem.text}-${groupIndex}`}>
+                            <Link
+                              href={groupItem.url}
+                              color="foreground"
+                              className="font-medium cursor-pointer"
+                            >
+                              {groupItem.text}
+                            </Link>
+                          </DropdownItem>
+                        )
+                      })}
+                    </DropdownMenu>
+                  </Dropdown>
+                }
+                { ["link", "scroll"].includes(item.action) &&
+                    <NavbarItem key={`nav-item-link-${item.text}-${index}`}>
+                      <Link
+                        onClick={() => handleClickMenu(item) }
+                        color="foreground"
+                        className="font-medium cursor-pointer" 
+                      >
+                        {item.text}
+                      </Link>
+                    </NavbarItem>
+                }
+              </>
+            )
+        })}
+        
+      </NavbarContent>
+      <NavbarContent className="hidden md:flex gap-4" justify="end"></NavbarContent>
+      <NavbarMenu className="p-10">
+        { (menu as any).map((item: Menu, index : number) => {
+          return (
+            <NavbarMenuItem key={`nav-menu-${item.text}-${index}`}>
+              { item.groups
+                  ? (item.groups as any).map((groupItem: Menu, groupIndex : number) => {
+                        return (
+                          <Link
+                            className="w-full py-1.5"
+                            size="lg"
+                            onClick={() => handleClickMenu(groupItem) }
+                            color="foreground"
+                          >
+                            {groupItem.text}
+                          </Link>
+                        )
+                    })
+                  : <Link
+                      className="w-full"
+                      size="lg"
+                      onClick={() => handleClickMenu(item) }
+                      color="foreground"
+                    >
+                      {item.text}
+                    </Link>
+              }
+            </NavbarMenuItem>
+          )
+        })}
+      </NavbarMenu>
+    </NextUINavbar>
+  );
+}
