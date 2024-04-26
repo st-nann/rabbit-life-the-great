@@ -3,7 +3,7 @@ import { banner } from "@/config/home"
 
 export const HomeBanner = () => {
   return (
-    <div className="flex flex-nowrap flex-row items-center">
+    <div className="flex flex-nowrap flex-col md:flex-row items-start sm:items-center">
       <div className="w-2/4">
         <Carousel lists={banner} />
       </div>
@@ -13,7 +13,7 @@ export const HomeBanner = () => {
           <span className="text-4xl font-bold text-primary"> แรบบิท ไลฟ์</span>
         </div>
         <p className="text-4xl font-bold">ช่วยดูแลคุณ</p>
-        <p className="text-xl font-bold text-gray-700 mt-6">
+        <p className="text-xl font-bold text-gray-700 mt-6 home-banner-description">
           มองหาแบบผลิตภัณฑ์ที่ใช่ แบบประกันที่ให้ความคุ้มครอง 
           <br/>ครบตอบโจทย์ทั้งคุณและครอบครัวได้ที่นี่
         </p>

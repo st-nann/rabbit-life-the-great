@@ -6,3 +6,7 @@ header.max-w-\[1024px\] {
   /* max-width: 1024px; */
   max-width: unset;
 }
+
+.home-banner-description {
+  margin-top: 20px;
+}
