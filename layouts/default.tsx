@@ -26,7 +26,9 @@ export default function DefaultLayout({
 	return (
 		<div className="relative flex flex-col h-screen">
 			<Head />
-      <Navbar />
+			<div className="w-full flex flex-wrap flex-row justify-center">
+      	<Navbar />
+			</div>
 			<main className="container mx-auto max-w-7xl flex-grow">
 				{children}
 			</main>

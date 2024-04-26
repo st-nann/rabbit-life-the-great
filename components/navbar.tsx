@@ -37,9 +37,9 @@ export const Navbar = () => {
   
 	return (
 		<NextUINavbar
-      isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
+      className="max-w-screen-xl"
     >
       <NavbarBrand>
         <Image
