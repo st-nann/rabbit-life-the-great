@@ -19,16 +19,16 @@ export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<NextUIProvider navigate={router.push}>
 			<NextThemesProvider attribute="class" defaultTheme="light">
-        <Provider store={store}>
+				<Provider store={store}>
 				  <Component {...pageProps} className={fonts.roboto} />
         </Provider>
 			</NextThemesProvider>
 		</NextUIProvider>
-	);
+	)
 }
 
 export const fonts = {
 	// sans: fontSans.style.fontFamily,
 	// mono: fontMono.style.fontFamily,
   roboto: fontRoboto.style.fontFamily,
-};
+}

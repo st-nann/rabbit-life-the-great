@@ -18,6 +18,10 @@ module.exports = {
     screens: {
       xs: "475px",
       ...defaultTheme.screens,
+    },
+    fontSize: {
+      ...defaultTheme.fontSize,
+      "4xl": ["4rem", { lineHeight: "4rem" }]
     }
   },
   darkMode: "class",
