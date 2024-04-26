@@ -1,4 +1,5 @@
 export type Menu = {
+  id: number;
   text: string;
   action: string;
   groups?: MenuGroup[];

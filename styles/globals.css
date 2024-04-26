@@ -6,3 +6,50 @@ header.max-w-\[1024px\] {
   /* max-width: 1024px; */
   max-width: unset;
 }
+
+.home-banner-description {
+  margin-top: 20px;
+}
+
+.yellow-400 {
+  background-color: rgb(250 204 21);
+}
+
+.sky-500 {
+  background-color: rgb(14 165 233);
+}
+
+.rose-400 {
+  background-color: rgb(244 63 94);
+}
+
+.pink-300 {
+  background-color: rgb(249 168 212);
+}
+
+.blue-500 {
+  background-color: rgb(59 130 246);
+}
+
+.icon-btn {
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+  vertical-align: middle;
+}
+
+img {
+  height: -webkit-fill-available;
+}
+
+.accordion-description {
+  word-break: break-word;
+  width: 500px;
+  color: #666666;
+}
+
+@media only screen and (max-width: 600px) {
+  .accordion-description {
+    width: auto;
+  }
+}

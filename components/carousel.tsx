@@ -24,33 +24,29 @@ const Carousel = ({ lists }) => {
   // }
 
   return (
-    <div className="relative bg-white p-8 rounded-lg">
-      <div className="overflow-hidden relative rounded-lg pb-4">
-        <Image
-          className="w-full h-auto"
-          src={lists[currentImageIndex].image}
-          alt={`Slide ${currentImageIndex + 1}`}
-        />
+    <div className="flex flex-col flex-wrap bg-white p-8 rounded-lg shadow-xl md:max-w-3xl">
+      <Image
+        className="w-full h-auto"
+        src={lists[currentImageIndex].image}
+        alt={`Slide ${currentImageIndex + 1}`}
+      />
+      <div className="bottom-0 items-center py-4 px-2">
+        <p className="text-black xs:text-xl sm:text-2xl font-medium">{lists[currentImageIndex].title}</p>
+        <p className="text-black font-light">{lists[currentImageIndex].description}</p>
       </div>
-      <div className="flex flex-row flex-wrap content-center content-stretch">
-        <div className="bottom-0 xs:w-full sm:flex-1 items-center px-2">
-          <p className="text-black xs:text-xl sm:text-2xl font-medium">{lists[currentImageIndex].title}</p>
-          <p className="text-black font-light">{lists[currentImageIndex].description}</p>
-        </div>
-        <div className="bottom-0 right-0 flex xs:w-full justify-end items-center ps-2 py-2">
-          <Button
-            className="bg-gray-100 text-black mr-1 rounded-full"
-            endContent={<IoIosArrowBack />}
-            onClick={prevImage}
-            isIconOnly
-          />
-          <Button
-            className="bg-gray-100 text-black ml-2 rounded-full"
-            endContent={<IoIosArrowForward />}
-            onClick={nextImage}
-            isIconOnly
-          />
-        </div>
+      <div className="bottom-0 right-0 flex xs:w-full justify-end items-center ps-2 py-2">
+        <Button
+          className="bg-gray-100 text-black mr-1 rounded-full"
+          endContent={<IoIosArrowBack />}
+          onClick={prevImage}
+          isIconOnly
+        />
+        <Button
+          className="bg-gray-100 text-black ml-2 rounded-full"
+          endContent={<IoIosArrowForward />}
+          onClick={nextImage}
+          isIconOnly
+        />
       </div>
       {/* <div className="bottom-0 left-0 w-full flex justify-center space-x-2 p-2">
         {images.map((_, index) => (
