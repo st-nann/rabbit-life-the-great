@@ -6,8 +6,8 @@ import filter from "lodash/filter"
 export const HomeButton = () => {
   const productMenu = filter(menu, (item: Menu) => item.id === 1)
   return (
-    <div className="flex flex-wrap flex-row justify-center p-16 bg-slate-100 w-full m-6">
-      <div className="flex flex-nowrap flex-col md:flex-row items-start sm:items-center justify-around gap-4 w-full max-w-screen-xl">
+    <div className="flex flex-wrap flex-row justify-center p-10 bg-slate-100 w-full">
+      <div className="flex flex-nowrap flex-col md:flex-row items-start sm:items-center gap-4 max-w-screen-xl">
         <div className="w-1/4">
           <p className="text-xl font-medium">ผลิตภัณฑ์ทั้งหมด</p>
         </div>
