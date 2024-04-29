@@ -13,6 +13,9 @@ module.exports = {
     extend: {
       fontFamily: {
         prompt: ["Prompt", "sans-serif"]
+      },
+      spacing: {
+        "18": "4.5rem"
       }
     },
     screens: {
