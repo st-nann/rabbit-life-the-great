@@ -10,7 +10,6 @@ export default function IndexPage() {
 			<section className="flex flex-col items-center justify-center gap-10">
 				<HomeBanner />
 				<HomeButton />
-				<ProductCard />
 				<Faq />
       </section>
 		</DefaultLayout>

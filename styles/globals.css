@@ -53,3 +53,19 @@ img {
     width: auto;
   }
 }
+
+.column-33 {
+  flex-basis: 31.333333%;
+}
+
+@media only screen and (max-width: 621px) {
+  .column-33 {
+    flex-basis: 100%;
+  }
+}
+
+@media only screen and (min-width: 622px) and (max-width: 998px) {
+  .column-33 {
+    flex-basis: 47%;
+  }
+}
