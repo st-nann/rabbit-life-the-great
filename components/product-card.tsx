@@ -24,10 +24,13 @@ export const ProductCard = ({ item }: { item: Product }) => {
           />
           
           <div className="flex flex-col gap-1 absolute bottom-3 ml-2 z-50">
-            {(item.categories as any).map((categoryItem: Category) => {
+            {(item.categories as any).map((categoryItem: Category, categoryIndex: number) => {
               return(
                 filterCategory().includes(categoryItem.slug) &&
-                  <p className={`flex text-sm font-normal text-white px-5 py-1 rounded-full ${getTagColor(categoryItem.slug)}`}>
+                  <p
+                    key={`product-category-${categoryIndex}`}
+                    className={`flex text-sm font-normal text-white px-5 py-1 rounded-full ${getTagColor(categoryItem.slug)}`}
+                  >
                     { categoryItem.pcategory_name }
                   </p>
               )
@@ -48,16 +51,16 @@ export const ProductCard = ({ item }: { item: Product }) => {
           <ul className="p-4 list-disc list-inside">
             {covertAttributeFmtToHtml(item.attributes_fmt).map((attr: string) => {
               return (
-                <li className="text-sm font-normal">{attr}</li>
+                <li key={`product-attr-${attr}`} className="text-sm font-normal">{attr}</li>
               )
             })}
           </ul>
         </div>
         <div className="border-t-1 min-h-60 max-h-60 md:min-h-32 md:max-h-32">
           <ul className="p-4 flex flex-wrap flex-row gap-2">
-            {(item.tags).map((tag: Tag) => {
+            {(item.tags).map((tag: Tag, tagIndex: number) => {
               return (
-                <li className="text-sm font-normal bg-orange-50 text-primary p-2 rounded-lg">{tag.tag_name_th}</li>
+                <li key={`product-tag-${tagIndex}`} className="text-sm font-normal bg-orange-50 text-primary p-2 rounded-lg">{tag.tag_name_th}</li>
               )
             })}
           </ul>
