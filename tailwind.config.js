@@ -15,11 +15,17 @@ module.exports = {
         prompt: ["Prompt", "sans-serif"]
       },
       spacing: {
+        ...defaultTheme.spacing,
+        "16": "4rem",
         "18": "4.5rem"
+      },
+      maxWidth: {
+        '75': '19rem',
       }
     },
     screens: {
       xs: "475px",
+      ssm: "620px",
       ...defaultTheme.screens,
     },
     fontSize: {
