@@ -26,6 +26,7 @@ const Carousel = ({ lists }) => {
   return (
     <div className="flex flex-col flex-wrap bg-white p-8 rounded-lg shadow-xl md:max-w-3xl">
       <Image
+        isZoomed
         className="w-full h-auto"
         src={lists[currentImageIndex].image}
         alt={`Slide ${currentImageIndex + 1}`}
