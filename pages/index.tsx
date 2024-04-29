@@ -2,6 +2,7 @@ import DefaultLayout from "@/layouts/default"
 import { HomeBanner } from "@/layouts/sections/home-banner"
 import { HomeButton } from "@/layouts/sections/home-button"
 import { Faq } from "@/layouts/sections/faq"
+import { ProductCard } from "@/components/product-card"
 
 export default function IndexPage() {
 	return (

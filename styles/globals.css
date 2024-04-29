@@ -12,23 +12,23 @@ header.max-w-\[1024px\] {
 }
 
 .yellow-400 {
-  background-color: rgb(250 204 21);
+  background: linear-gradient(180deg, #FF9300 0%, rgba(255, 147, 0, 0.6) 100%);
 }
 
 .sky-500 {
-  background-color: rgb(14 165 233);
+  background: linear-gradient(180deg, #4EADFF 0%, rgba(78, 173, 255, 0.6) 100%);
 }
 
 .rose-400 {
-  background-color: rgb(244 63 94);
+  background: linear-gradient(180deg, #F77583 0%, rgba(247, 117, 131, 0.6) 100%);
 }
 
 .pink-300 {
-  background-color: rgb(249 168 212);
+  background: linear-gradient(180deg, #FF6479 0%, rgba(255, 100, 121, 0.6) 100%);
 }
 
 .blue-500 {
-  background-color: rgb(59 130 246);
+  background: linear-gradient(180deg, #004FC5 0%, rgba(0, 79, 197, 0.6) 100%);
 }
 
 .icon-btn {
@@ -51,5 +51,21 @@ img {
 @media only screen and (max-width: 600px) {
   .accordion-description {
     width: auto;
+  }
+}
+
+.column-33 {
+  flex-basis: 31.333333%;
+}
+
+@media only screen and (max-width: 621px) {
+  .column-33 {
+    flex-basis: 100%;
+  }
+}
+
+@media only screen and (min-width: 622px) and (max-width: 998px) {
+  .column-33 {
+    flex-basis: 47%;
   }
 }
