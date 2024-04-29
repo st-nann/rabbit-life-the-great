@@ -42,13 +42,13 @@ export const Navbar = () => {
       className="max-w-screen-xl"
     >
       <NavbarBrand>
-        <a href="/">
+        <Link href="/">
           <Image
             width={200}
             alt="NextUI hero Image"
             src="/rabbitlife-logo.png"
           />
-        </a>
+        </Link>
       </NavbarBrand>
       <NavbarContent className="md:hidden xs:flex" justify="end">
         <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
