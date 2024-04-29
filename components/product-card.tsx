@@ -9,7 +9,7 @@ export const ProductCard = ({ item }: { item: Product }) => {
   }
   return (
     <Card
-      className="flex flex-col drop-shadow-lg bg-white rounded-2xl text-start column-custom max-w-full xl:max-w-sm"
+      className="flex flex-col drop-shadow-lg bg-white rounded-2xl text-start column-custom max-w-full"
       onPress={() => handleGotoDetail(item.url)}
       isPressable
       fullWidth
