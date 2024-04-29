@@ -23,7 +23,7 @@ const initialState: InitialStateProp = {
     data: null,
     faqs: null,
     detail: null,
-    suggestions: null,
+    suggestions: [],
     error: null
 }
 

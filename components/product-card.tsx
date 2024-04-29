@@ -44,7 +44,7 @@ export const ProductCard = ({ item }: { item: Product }) => {
             dangerouslySetInnerHTML={{__html: item.html_header_description }}
           ></p>
         </div>
-        <div className="border-t-1 min-h-48 max-h-48">
+        <div className="border-t-1 min-h-48 max-h-48  md:min-h-32 md:max-h-32">
           <ul className="p-4 list-disc list-inside">
             {covertAttributeFmtToHtml(item.attributes_fmt).map((attr: string) => {
               return (
@@ -53,7 +53,7 @@ export const ProductCard = ({ item }: { item: Product }) => {
             })}
           </ul>
         </div>
-        <div className="border-t-1 min-h-60 max-h-60">
+        <div className="border-t-1 min-h-60 max-h-60 md:min-h-32 md:max-h-32">
           <ul className="p-4 flex flex-wrap flex-row gap-2">
             {(item.tags).map((tag: Tag) => {
               return (
