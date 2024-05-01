@@ -44,3 +44,15 @@ export function covertAttributeFmtToHtml(attrFmt: string) {
   const attr = replaceSpace.split("\\n")
   return attr
 }
+
+export function covertAttributeFmtToHtmlKeyValue(attrFmt: string) {
+  const attrSplit = attrFmt.split("\\n")
+  const attr = attrSplit.map(item => {
+    const keyValueSplit = item.split("|")
+    return {
+      key: get(keyValueSplit, "0", ""),
+      value: get(keyValueSplit, "1", "")
+    }
+  })
+  return attr
+}

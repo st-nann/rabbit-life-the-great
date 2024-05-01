@@ -15,18 +15,19 @@ export default function ProductDetailPage() {
   const { query } = router
   const slug: string = get(query, "slug", "") as string
   const products: Product[] = get(data, "products", [])
-  const product = find(products, (item: Product) => item.slug === slug)
+  const product = find(products, (item: Product) => item.slug === slug) as Product
   const title = "ผลิตภัณฑ์ที่คุณอาจสนใจ"
   const productRelated = get(product, "product_related", []) as Product[]
-  console.log('product:', product);
   
 	return (
 		<DefaultLayout>
-			<section className="flex flex-col items-center justify-center">
-        <ProductDetailBanner />
-        <ProductDetailDescription />
-        <ProductLists title={title} lists={productRelated} />
-      </section>
+			{ product &&
+        <section className="flex flex-col items-center justify-center">
+          <ProductDetailBanner product={product} />
+          <ProductDetailDescription product={product} />
+          <ProductLists title={title} lists={productRelated} />
+        </section>
+      }
 		</DefaultLayout>
 	)
 }
