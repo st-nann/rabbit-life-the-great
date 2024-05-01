@@ -60,6 +60,19 @@ img {
   display: flex;
 }
 
+.text-max-w-custom {
+  max-width: 400px;
+}
+
+.image-max-w-custom {
+  max-width: 752px;
+}
+
+.icon-image-w-custom {
+  max-width: 60px;
+  min-width: 60px;
+}
+
 
 @media only screen and (max-width: 600px) {
   .accordion-description {
@@ -89,7 +102,7 @@ img {
   }
 }
 
-@media only screen and (max-width: 1219px) {
+@media only screen and (max-width: 1271px) {
   .flex-col-reverse-custom {
     flex-direction: column-reverse;
   }
@@ -104,5 +117,9 @@ img {
 
   .flex-col-custom {
     flex-direction: column;
+  }
+
+  .image-max-w-custom {
+    max-width: fit-content;
   }
 }
