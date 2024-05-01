@@ -6,7 +6,7 @@ import get from "lodash/get"
 export const ProductDetailDescription = ({ product }: { product: Product }) => {
   const attributeFmt = get(product, "attributes_fmt", "")
   const attributeFmtArr = covertAttributeFmtToHtmlKeyValue(attributeFmt)
-  
+
   return (
     <div className="w-full flex flex-nowrap flex-row p-8 justify-center max-w-screen-xl gap-4 flex-col-custom">
       <div className="w-auto">
@@ -46,39 +46,48 @@ export const ProductDetailDescription = ({ product }: { product: Product }) => {
       </div>
       <div className="width-description">
         <div className="flex flex-col flex-wrap gap-10">
-          <div className="flex flex-row gap-4">
-            <Image
-              width={60}
-              src="/icons/icon-cash.png"
-              alt="icon-cash"
-            />
-            <div>
-              <p className="text-primary text-3xl">{product.benefit_1_header}</p>
-              <p className="font-bold text-black text-lg font-medium text-gray-500">{product.benefit_1_body_html}</p>
-            </div>
-          </div>
-          <div className="flex flex-row gap-4">
-            <Image
-              width={60}
-              src="/icons/icon-agreement.png"
-              alt="icon-agreement"
-            />
-            <div>
-              <p className="text-primary text-3xl">{product.benefit_2_header}</p>
-              <p className="font-bold text-black text-lg font-medium text-gray-500">{product.benefit_2_body_html}</p>
-            </div>
-          </div>
-          <div className="flex flex-row gap-4">
-            <Image
-              width={60}
-              src="/icons/icon-less-pay.png"
-              alt="icon-less-pay"
-            />
-            <div>
-              <p className="text-primary text-3xl">{product.benefit_3_header}</p>
-              <p className="font-bold text-black text-lg font-medium text-gray-500">{product.benefit_3_body_html}</p>
-            </div>
-          </div>
+          { (product.benefit_1_header !== "" && product.benefit_1_body_html !== "") &&
+              <div className="flex flex-row gap-4">
+                <Image
+                  width={60}
+                  src="/icons/icon-cash.png"
+                  alt="icon-cash"
+                  className="icon-image-w-custom"
+                />
+                <div>
+                  { product.benefit_1_header !== "" && <p className="text-primary text-3xl">{product.benefit_1_header}</p> }
+                  { product.benefit_1_body_html !== "" && <p className="font-bold text-black text-lg font-medium text-gray-500">{product.benefit_1_body_html}</p> }
+                </div>
+              </div>
+          }
+          { (product.benefit_2_header !== "" && product.benefit_2_body_html !== "") &&
+              <div className="flex flex-row gap-4">
+                <Image
+                  width={60}
+                  src="/icons/icon-agreement.png"
+                  alt="icon-agreement"
+                  className="icon-image-w-custom"
+                />
+                <div>
+                  { product.benefit_2_header !== "" && <p className="text-primary text-3xl">{product.benefit_2_header}</p> }
+                  { product.benefit_2_body_html !== "" && <p className="font-bold text-black text-lg font-medium text-gray-500">{product.benefit_2_body_html}</p> }
+                </div>
+              </div>
+          }
+          { (product.benefit_3_header !== "" && product.benefit_3_body_html !== "") &&
+              <div className="flex flex-row gap-4">
+                <Image
+                  width={60}
+                  src="/icons/icon-less-pay.png"
+                  alt="icon-less-pay"
+                  className="icon-image-w-custom"
+                />
+                <div>
+                  { product.benefit_3_header !== "" && <p className="text-primary text-3xl">{product.benefit_3_header}</p> }
+                  { product.benefit_3_body_html !== "" && <p className="font-bold text-black text-lg font-medium text-gray-500">{product.benefit_3_body_html}</p> }
+                </div>
+              </div>
+          }
         </div>
       </div>
     </div>

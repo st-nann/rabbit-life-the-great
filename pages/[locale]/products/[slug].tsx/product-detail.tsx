@@ -22,7 +22,7 @@ export default function ProductDetailPage() {
 	return (
 		<DefaultLayout>
 			{ product &&
-        <section className="flex flex-col items-center justify-center">
+        <section className="flex flex-col items-center justify-center gap-10">
           <ProductDetailBanner product={product} />
           <ProductDetailDescription product={product} />
           <ProductLists title={title} lists={productRelated} />
