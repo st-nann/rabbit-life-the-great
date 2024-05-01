@@ -22,7 +22,12 @@ export const ProductDetailBanner = ({ product }: { product: Product }) => {
           <div className="flex">
             {(product.categories as Category[]).map((category: Category) => {
               return (
-                <Chip className={`text-white ${getTagColor(category.slug)}`}> {category.pcategory_name} </Chip>
+                <Chip
+                  key={`tag-category-${category.pcate_id}`}
+                  className={`text-white ${getTagColor(category.slug)}`}
+                >
+                  {category.pcategory_name}
+                </Chip>
               )
             })}
           </div>
