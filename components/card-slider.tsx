@@ -95,7 +95,7 @@ const CardSlider = ({ lists }: { lists: Product[] }) => {
             isIconOnly
           />
         </div>
-        <div className="flex-initial w-auto">
+        <div className="flex-1 w-auto">
           <div className="flex flex-wrap flex-row gap-2 justify-center">
             {(currentCards as Product[]).map((card, index) => (
               <ProductCard key={`product-card-${index}`} item={card} />

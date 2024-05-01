@@ -29,7 +29,7 @@ export const ProductDetailBanner = ({ product }: { product: Product }) => {
           <p className="text-black text-3xl font-medium py-2">{product.product_name_en}</p>
           <div className="flex flex-col">
             <span
-              className="text-gray-600 font-light"
+              className="text-gray-600 font-light text-max-w-custom"
               dangerouslySetInnerHTML={{__html: product.html_header_description }}
             />
           </div>
@@ -58,7 +58,7 @@ export const ProductDetailBanner = ({ product }: { product: Product }) => {
       <div className="p-2 rounded-lg shadow-xl md:max-w-3xl">
         <div className="flex flex-col flex-nowrap w-auto sm:flex-nowrap sm:w-auto md:flex-nowrap md:w-auto">
           <Image
-            className="w-full h-auto"
+            className="w-full h-auto image-max-w-custom"
             src={product.image_name_large}
             alt="banner-detail-product"
           />
