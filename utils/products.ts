@@ -5,7 +5,7 @@ import filter from "lodash/filter"
 import get from "lodash/get"
 import { includes } from "lodash"
 
-export function getProductByCategory(lists: Product[], category: string): Product[] | void {
+export function getProductByCategory(lists: Product[], category: string): Product[] {
   let newLists: Product[] | [] = []
   if (lists.length > 0 && category !== "") {
     newLists = filter(lists, (item: Product) => {
