@@ -4,10 +4,11 @@ import { useSelector } from "react-redux"
 import { useRouter } from "next/router"
 import { RootState } from "@/redux/store"
 import { get } from "lodash"
-import { Product } from "@/types/product"
+import { Faqs, Product } from "@/types/product"
 import { ProductDetailBanner } from "@/layouts/sections/product-detail-banner"
 import { ProductDetailDescription } from "@/layouts/sections/product-detail-description"
 import { ProductLists } from "@/layouts/sections/product-lists"
+import { Faq } from "@/layouts/sections/faq"
 
 export default function ProductDetailPage() {
   const data = useSelector((state: RootState) => state.rabbitLifeSlice.data)
@@ -18,6 +19,7 @@ export default function ProductDetailPage() {
   const product = find(products, (item: Product) => item.slug === slug) as Product
   const title = "ผลิตภัณฑ์ที่คุณอาจสนใจ"
   const productRelated = get(product, "product_related", []) as Product[]
+  const faqs = get(product, "faqs", []) as Faqs[]
   
 	return (
 		<DefaultLayout>
@@ -25,6 +27,7 @@ export default function ProductDetailPage() {
         <section className="flex flex-col items-center justify-center gap-10">
           <ProductDetailBanner product={product} />
           <ProductDetailDescription product={product} />
+          { faqs.length > 0 && <Faq faqs={faqs} /> }
           <ProductLists title={title} lists={productRelated} />
         </section>
       }

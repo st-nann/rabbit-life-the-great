@@ -23,14 +23,19 @@ export const ProductDetailDescription = ({ product }: { product: Product }) => {
         <ul className="flex flex-wrap flex-row gap-2 py-4">
           {(product.tags as Tag[]).map((tag: Tag) => {
             return (
-              <li className="text-sm font-normal bg-orange-50 text-primary p-2 rounded-lg">{tag.tag_name_th}</li>
+              <li
+                key={`product-detail-tag-${tag.ptag_id}`}
+                className="text-sm font-normal bg-orange-50 text-primary p-2 rounded-lg"
+              >
+                {tag.tag_name_th}
+              </li>
             )
           })}
         </ul>
         <div className="flex flex-row flex-wrap gap-10">
-          {attributeFmtArr.map((item: { [key: string]: string }) => {
+          {attributeFmtArr.map((item: { [key: string]: string }, index: number) => {
             return (
-              <div>
+              <div key={`attr-html-${index}`}>
                 <p className="text-gray-500">{item.key}</p>
                 <p className="font-bold text-black">{item.value}</p>
               </div>
