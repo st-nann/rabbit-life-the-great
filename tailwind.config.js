@@ -30,7 +30,7 @@ module.exports = {
     },
     fontSize: {
       ...defaultTheme.fontSize,
-      "4xl": ["4rem", { lineHeight: "4rem" }]
+      "4xl": ["4rem", { lineHeight: "4rem" }],
     }
   },
   darkMode: "class",
