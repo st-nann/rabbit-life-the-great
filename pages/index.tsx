@@ -6,6 +6,7 @@ import { ProductLists } from "@/layouts/sections/product-lists"
 import { useSelector } from "react-redux"
 import { RootState } from "@/redux/store"
 import { Product } from "@/types/product"
+import { ContactUsForm } from "@/layouts/sections/contact-us-form"
 
 export default function IndexPage() {
 	const title = "ผลิตภัณฑ์ที่เหมาะกับคุณ"
@@ -17,6 +18,7 @@ export default function IndexPage() {
 				<HomeButton />
 				<ProductLists title={title} lists={suggestions} />
 				<Faq />
+				<ContactUsForm />
       </section>
 		</DefaultLayout>
 	)

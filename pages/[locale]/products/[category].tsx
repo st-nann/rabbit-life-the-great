@@ -19,7 +19,7 @@ export default function ProductListsPage() {
   const { query } = router
   const category: string = get(query, "category", "") as string
   const products: Product[] = get(data, "products", [])
-  const productsByType = getProductByCategory(products, category) 
+  const productsByType = getProductByCategory(products, category)
   const menuLists = filter(menu, (item: Menu) => item.id === 1)
   const groups = get(menuLists, "0.groups", [])
   const groupItem = find(groups, (item: MenuGroup) => includes(item.url, category))
