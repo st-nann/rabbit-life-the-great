@@ -17,3 +17,9 @@ export function calculateItemPerPageSlide() {
 export function convertCurrency(amount: number) {
   return numeral(amount).format("$0,0.00")
 }
+
+export function addClassToFirstElementChild(id: string, className: string) {
+  const parent = document.getElementById(id)
+  const ulEle = (parent as HTMLElement).children[0]
+  ulEle.classList.add(className)
+}
