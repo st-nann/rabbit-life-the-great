@@ -6,9 +6,30 @@ html_benefit_text check is "" not display    หัวข้อ  -> เงื�
 html_condition check is "" not display 
 */
   return (
-    <div>
-      <p className="text-3xl font-medium text-primary">ผลประโยชน์และความคุ้มครอง</p>
-      <p className="text-lg font-normal text-gray-500">ผลประโยชน์และความคุ้มครอง</p>
+    <div className="p-8 width-description max-w-screen-xl">
+      { product.html_benefit_text !== "" &&
+        <p className="text-3xl font-medium text-primary">ผลประโยชน์และความคุ้มครอง</p>
+      }
+      <ul>
+        <li className="text-lg font-normal text-gray-500"
+        dangerouslySetInnerHTML={{__html: product.html_benefit_text}}
+        >
+        </li>
+      </ul>
+
+     
+      { product.html_benefit_text !== "" &&
+        <p className="text-3xl font-medium text-primary">เงื่อนไขประกัน</p>
+      }
+      <ul>
+        <li className="text-lg font-normal text-gray-500"
+        dangerouslySetInnerHTML={{__html: product.html_condition}}
+        >
+        </li>
+      </ul>
     </div>
   )
 } 
+
+
+
