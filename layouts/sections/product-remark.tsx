@@ -10,7 +10,6 @@ html_disclaimer check is ""  -> not display แปลงhtml กับ check ค
   const htmlDisclaimerReplace = convertHtmlDisclaimer(htmlDisclaimer)
 
   return (
-<<<<<<< HEAD
     <div className="p-8 width-description max-w-screen-xl">
       <ul className="list-inside list-style">
         <li className="text-sm font-normal text-gray-500"
@@ -18,10 +17,6 @@ html_disclaimer check is ""  -> not display แปลงhtml กับ check ค
         >
         </li>
       </ul>
-=======
-    <div className="flex flex-wrap flex-row p-8 max-w-screen-xl">
-     <div dangerouslySetInnerHTML={{ __html: htmlDisclaimerReplace }} />
->>>>>>> 51e50779a94bdd9efdf40817483fd5d34c754158
     </div>
   )
 } 
