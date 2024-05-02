@@ -57,6 +57,6 @@ export function covertAttributeFmtToHtmlKeyValue(attrFmt: string) {
   return attr
 }
 
-export function convertHtmlDisclaimer(html: string) {
+export function convertHtml(html: string) {
   return html.replaceAll("\\n", "")
 }

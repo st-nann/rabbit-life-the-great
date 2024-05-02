@@ -1,32 +1,37 @@
 import { Product } from "@/types/product"
+import { addClassToFirstElementChild } from "@/utils/helper"
+import { convertHtml } from "@/utils/products"
+import get from "lodash/get"
+import { useEffect } from "react"
 
 export const ProductBenefitCondition = ({ product }: { product: Product }) => {
-/*
-html_benefit_text check is "" not display    หัวข้อ  -> เงืื่ิอนไขประกัน ผลปยและค.คุ้มครอง fix code
-html_condition check is "" not display 
-*/
-  return (
-    <div className="p-8 width-description max-w-screen-xl">
-      { product.html_benefit_text !== "" &&
-        <p className="text-3xl font-medium text-primary">ผลประโยชน์และความคุ้มครอง</p>
-      }
-      <ul>
-        <li className="text-lg font-normal text-gray-500"
-        dangerouslySetInnerHTML={{__html: product.html_benefit_text}}
-        >
-        </li>
-      </ul>
+  const htmlBenefit = get(product, "html_benefit_text", "")
+  const htmlBenefitReplace = convertHtml(htmlBenefit)
+  const htmlCondition = get(product, "html_condition", "")
+  const htmlConditionReplace = convertHtml(htmlCondition)
 
-     
-      { product.html_benefit_text !== "" &&
-        <p className="text-3xl font-medium text-primary">เงื่อนไขประกัน</p>
+  useEffect(() => {
+    addStyles()
+  }, [])
+
+  const addStyles = () => {
+    addClassToFirstElementChild("list-custom", "list-disc")
+  }
+  
+  return (
+    <div className="flex flex-wrap flex-row p-8 max-w-screen-xl w-full">
+      { htmlBenefit !== "" && 
+        <div className="flex flex-col gap-4">
+          <div className="text-3xl font-medium text-primary">ผลประโยชน์และความคุ้มครอง</div>
+          <div id="list-custom" dangerouslySetInnerHTML={{ __html: htmlBenefitReplace }} />
+        </div>
       }
-      <ul>
-        <li className="text-lg font-normal text-gray-500"
-        dangerouslySetInnerHTML={{__html: product.html_condition}}
-        >
-        </li>
-      </ul>
+      { htmlCondition !== "" && 
+        <div className="flex flex-col gap-4">
+          <div className="text-3xl font-medium text-primary">เงื่อนไขประกัน</div>
+          <div id="list-custom" dangerouslySetInnerHTML={{ __html: htmlConditionReplace }} />
+        </div>
+      }
     </div>
   )
 } 
