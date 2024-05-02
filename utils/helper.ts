@@ -1,5 +1,6 @@
 import isUndefined from "lodash/isUndefined"
 import get from "lodash/get"
+import numeral from "numeral"
 
 export function calculateItemPerPageSlide() {
   if (!isUndefined(window)) {
@@ -11,4 +12,8 @@ export function calculateItemPerPageSlide() {
     }
   }
   return 3
+}
+
+export function convertCurrency(amount: number) {
+  return numeral(amount).format("$0,0.00")
 }

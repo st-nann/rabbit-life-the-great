@@ -9,7 +9,7 @@ export const Faq = ({ faqs }: { faqs: Faqs[] }) => {
       </div>
       <div className="px-5">
         {
-          faqs.length > 0
+          faqs && faqs.length > 0
             ? faqs.map((item: Faqs) => {
                 return (
                   <Accordion key={`faq-${item.faq_id}`} >
