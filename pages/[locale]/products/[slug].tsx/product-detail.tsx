@@ -7,6 +7,8 @@ import { get } from "lodash"
 import { Faqs, Product } from "@/types/product"
 import { ProductDetailBanner } from "@/layouts/sections/product-detail-banner"
 import { ProductDetailDescription } from "@/layouts/sections/product-detail-description"
+import { ProductRemark } from "@/layouts/sections/product-remark"
+import { ProductBenefitCondition } from "@/layouts/sections/product-benefit-condition"
 import { ProductLists } from "@/layouts/sections/product-lists"
 import { Faq } from "@/layouts/sections/faq"
 
@@ -28,6 +30,8 @@ export default function ProductDetailPage() {
           <ProductDetailBanner product={product} />
           <ProductDetailDescription product={product} />
           { faqs.length > 0 && <Faq faqs={faqs} /> }
+          <ProductRemark product={product} />
+          <ProductBenefitCondition product={product} />
           <ProductLists title={title} lists={productRelated} />
         </section>
       }
